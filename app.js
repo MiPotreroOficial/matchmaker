@@ -19,7 +19,15 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-firestore.js";
 
 // Config y init Firebase
-const firebaseConfig = { /* tu config aquí */ };
+const firebaseConfig = {
+   apiKey: "AIzaSyACVghZ9he6Wcf-nA-Vn35VIPxPOkhoIok",
+  authDomain: "mi-potrero.firebaseapp.com",
+  projectId: "mi-potrero",
+  storageBucket: "mi-potrero.appspot.com",
+  messagingSenderId: "36934575528",
+  appId: "1:36934575528:web:686fa0df3310caa494299d",
+  measurementId: "G-MJ31HJ401D"
+};
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
