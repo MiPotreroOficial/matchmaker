@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Potrero - Crear Partido</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Organiza partidos de fútbol con Mi Potrero</h1>
+    <nav>
+      <a href="index.html"><button>Explorar</button></a>
+      <a href="crear.html"><button>Crear</button></a>
+      <a href="mios.html"><button>Mis Partidos</button></a>
+      <button onclick="logout()">Salir</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="crear">
+      <h2>Crear Partido</h2>
+      <input type="text" id="lugar" placeholder="Lugar" /><br /><br />
+      <input type="datetime-local" id="fecha" /><br /><br />
+      <input type="number" id="cupos" placeholder="Cantidad de jugadores" /><br /><br />
+      <textarea id="descripcion" placeholder="Descripción"></textarea><br /><br />
+      <button id="btnCrear">Crear</button>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
