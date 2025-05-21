@@ -20,7 +20,7 @@ import {
 
 // Config y init Firebase
 const firebaseConfig = {
-   apiKey: "AIzaSyACVghZ9he6Wcf-nA-Vn35VIPxPOkhoIok",
+  apiKey: "AIzaSyACVghZ9he6Wcf-nA-Vn35VIPxPOkhoIok",
   authDomain: "mi-potrero.firebaseapp.com",
   projectId: "mi-potrero",
   storageBucket: "mi-potrero.appspot.com",
