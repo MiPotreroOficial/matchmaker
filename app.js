@@ -151,18 +151,22 @@ window.unirseAPartido = function(id, partido) {
 };
 
 // Autoejecutar según página y estado sesión
-onAuthStateChanged(auth, user => {
-  if (!user) {
-    alert("Inicia sesión primero");
-    window.location.href = "index.html"; // o donde tengas login
-    return;
-  }
-  if (page === "explorar.html") {
-    cargarPartidos();
-  } else if (page === "crear.html") {
-    const btnCrear = document.getElementById("btnCrear");
-    btnCrear?.addEventListener("click", crearPartido);
-  } else if (page === "mios.html") {
-    cargarMisPartidos();
-  }
-});
+if (page !== "index.html") {
+  onAuthStateChanged(auth, user => {
+    if (!user) {
+      alert("Inicia sesión primero");
+      window.location.href = "index.html";
+      return;
+    }
+
+    if (page === "explorar.html") {
+      cargarPartidos();
+    } else if (page === "crear.html") {
+      const btnCrear = document.getElementById("btnCrear");
+      btnCrear?.addEventListener("click", crearPartido);
+    } else if (page === "mios.html") {
+      cargarMisPartidos();
+    }
+  });
+}
+
