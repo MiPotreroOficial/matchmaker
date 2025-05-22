@@ -33,26 +33,25 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const partidosCol = collection(db, "partidos");
 
-//const protectedPages = ["explorar.html", "crear.html", "mios.html"];
-//const currentPage = window.location.pathname.split("/").pop() || "index.html";
-//if (protectedPages.includes(currentPage)) {
-//  onAuthStateChanged(auth, user => {
-//    if (!user) {
-//      alert("Inicia sesión primero");
-//      window.location.href = "index.html";
-//      return;
-//    }
-
-//    if (currentPage === "explorar.html") {
-//      cargarPartidos();
-//    } else if (currentPage === "crear.html") {
-//      const btnCrear = document.getElementById("btnCrear");
-//      btnCrear?.addEventListener("click", crearPartido);
-//    } else if (currentPage === "mios.html") {
-//      cargarMisPartidos();
-//    }
-//  });
-//}
+const protectedPages = ["explorar.html", "crear.html", "mios.html"];
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
+if (protectedPages.includes(currentPage)) {
+  onAuthStateChanged(auth, user => {
+    if (!user) {
+      alert("Inicia sesión primero");
+      window.location.href = "index.html";
+      return;
+    }
+    if (currentPage === "explorar.html") {
+      cargarPartidos();
+    } else if (currentPage === "crear.html") {
+      const btnCrear = document.getElementById("btnCrear");
+      btnCrear?.addEventListener("click", crearPartido);
+    } else if (currentPage === "mios.html") {
+      cargarMisPartidos();
+    }
+  });
+}
 
 // Funciones comunes
 window.logout = function() {
