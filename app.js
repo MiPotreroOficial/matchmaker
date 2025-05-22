@@ -35,6 +35,7 @@ const partidosCol = collection(db, "partidos");
 
 const protectedPages = ["explorar.html", "crear.html", "mios.html"];
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
 if (protectedPages.includes(currentPage)) {
   onAuthStateChanged(auth, user => {
     if (!user) {
@@ -42,6 +43,7 @@ if (protectedPages.includes(currentPage)) {
       window.location.href = "index.html";
       return;
     }
+
     if (currentPage === "explorar.html") {
       cargarPartidos();
     } else if (currentPage === "crear.html") {
