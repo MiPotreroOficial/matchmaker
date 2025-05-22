@@ -154,7 +154,7 @@ window.unirseAPartido = function(id, partido) {
 onAuthStateChanged(auth, user => {
   if (!user) {
     alert("Inicia sesión primero");
-    window.location.href = "login.html"; // o donde tengas login
+    window.location.href = "index.html"; // o donde tengas login
     return;
   }
   if (page === "index.html") {
