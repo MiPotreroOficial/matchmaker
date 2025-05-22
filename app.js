@@ -1,12 +1,12 @@
 // Importaciones Firebase (igual que antes)
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js";
 import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut
-} from "https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
 import {
   getFirestore,
   collection,
@@ -16,7 +16,7 @@ import {
   where,
   updateDoc,
   doc
-} from "https://www.gstatic.com/firebasejs/11.7.3/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/11.8.0/firebase-firestore.js";
 
 // Config y init Firebase
 const firebaseConfig = {
