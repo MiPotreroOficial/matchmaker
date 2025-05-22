@@ -20,13 +20,13 @@ import {
 
 // Config y init Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyACVghZ9he6Wcf-nA-Vn35VIPxPOkhoIok",
-  authDomain: "mi-potrero.firebaseapp.com",
-  projectId: "mi-potrero",
-  storageBucket: "mi-potrero.appspot.com",
-  messagingSenderId: "36934575528",
-  appId: "1:36934575528:web:686fa0df3310caa494299d",
-  measurementId: "G-MJ31HJ401D"
+  apiKey: "AIzaSyBRo2ZoKk-XbgPkNl1BOtRcGhSB4JEuocM",
+  authDomain: "mi-potrero-partidos.firebaseapp.com",
+  projectId: "mi-potrero-partidos",
+  storageBucket: "mi-potrero-partidos.firebasestorage.app",
+  messagingSenderId: "555922222113",
+  appId: "1:555922222113:web:dd2f79d5e20f0d96cac760",
+  measurementId: "G-7LBJ29RXKM"
 };
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -145,7 +145,7 @@ window.unirseAPartido = function(id, partido) {
   const docRef = doc(db, "partidos", id);
   updateDoc(docRef, { jugadores: partido.jugadores }).then(() => {
     alert("Te uniste al partido");
-    if (page === "index.html") cargarPartidos();
+    if (page === "explorar.html") cargarPartidos();
     if (page === "mios.html") cargarMisPartidos();
   });
 };
@@ -157,7 +157,7 @@ onAuthStateChanged(auth, user => {
     window.location.href = "index.html"; // o donde tengas login
     return;
   }
-  if (page === "index.html") {
+  if (page === "explorar.html") {
     cargarPartidos();
   } else if (page === "crear.html") {
     const btnCrear = document.getElementById("btnCrear");

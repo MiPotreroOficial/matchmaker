@@ -11,9 +11,9 @@
   <header>
     <h1>Organiza partidos de fútbol con Mi Potrero</h1>
     <nav>
-      <button onclick="showSection('explorar')">Explorar</button>
-      <button onclick="showSection('crear')">Crear</button>
-      <button onclick="showSection('mios')">Mis Partidos</button>
+      <a href="explorar.html"><button>Explorar</button></a>
+      <a href="crear.html"><button>Crear</button></a>
+      <a href="mios.html"><button>Mis Partidos</button></a>
       <button onclick="logout()">Salir</button>
     </nav>
   </header>
@@ -33,25 +33,6 @@
     <input type="password" id="password2" placeholder="Contraseña" />
     <button onclick="login()">Entrar</button>
   </section>
-
-  <section id="explorar" style="display:none">
-    <h2>Partidos disponibles</h2>
-    <div id="lista-partidos"></div>
-  </section>
-
-  <section id="crear" style="display:none">
-    <h2>Crear Partido</h2>
-    <input type="text" id="lugar" placeholder="Lugar" /><br /><br />
-    <input type="datetime-local" id="fecha" /><br /><br />
-        <input type="number" id="cupos" placeholder="Cantidad de jugadores" /><br /><br />
-      <textarea id="descripcion" placeholder="Descripción"></textarea><br /><br />
-      <button onclick="crearPartido()">Crear</button>
-    </section>
-
-    <section id="mios" style="display:none">
-      <h2>Mis Partidos</h2>
-      <div id="mis-partidos"></div>
-    </section>
   </main>
 
   <script type="module" src="app.js"></script>
