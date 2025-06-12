@@ -12,31 +12,37 @@
 </head>
 <body>
   <div class="layout">
-    <!-- Barra lateral -->
+    <!-- Sidebar -->
     <aside class="sidebar">
       <h1>MI<br>POTRERO</h1>
       <p class="subtitulo">La red social del fútbol</p>
 
-      
       <nav>
-        <a href="explorar.html"><button><span class="material-symbols-outlined">search</span>Explorar</button></a>
+        <a href="explorar.html"><button><span class="material-symbols-outlined">home</span>Inicio</button></a>
+        <a href="partidos.html"><button><span class="material-symbols-outlined">sports_soccer</span>Partidos</button></a>
         <a href="crear.html"><button><span class="material-symbols-outlined">add</span>Crear</button></a>
-        <a href="mios.html"><button><span class="material-symbols-outlined">sports_soccer</span>Mis Partidos</button></a>
         <a href="index.html"><button><span class="material-symbols-outlined">person</span>Cuenta</button></a>
       </nav>
+
       <div class="imagen-portada">
         <img src="https://drive.google.com/uc?export=view&id=18IaLId0UafWkWUkOdG1xnB9PQ97Jis57" alt="Mi Potrero" style="max-width:100%; height:auto;">
       </div>
-
     </aside>
 
-  <main>
-    <section id="mios">
-      <h2>Mis Partidos</h2>
-      <div id="mis-partidos"></div>
-    </section>
-  </main>
+    <!-- Contenido principal -->
+    <main>
+      <section id="explorar">
+        <h2>Partidos disponibles</h2>
+        <div id="lista-partidos"></div>
+      </section>
 
-  <script type="module" src="app.js"></script>
+      <section id="mios">
+        <h2>Mis partidos</h2>
+        <div id="mis-partidos"></div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </div>
 </body>
 </html>
