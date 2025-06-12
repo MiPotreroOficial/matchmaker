@@ -44,5 +44,58 @@
     </main>
     
   </div>
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js";
+  import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBRo2ZoKk-XbgPkNl1BOtRcGhSB4JEuocM",
+    authDomain: "mi-potrero-partidos.firebaseapp.com",
+    projectId: "mi-potrero-partidos",
+    storageBucket: "mi-potrero-partidos.firebasestorage.app",
+    messagingSenderId: "555922222113",
+    appId: "1:555922222113:web:dd2f79d5e20f0d96cac760",
+    measurementId: "G-7LBJ29RXKM"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const form = document.querySelector("form");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = form.querySelector('input[type="email"]').value;
+    const password = form.querySelector('input[type="password"]').value;
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      alert("Cuenta creada correctamente");
+      window.location.href = "explorar.html";
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
+  });
+
+  document.querySelector("a").addEventListener("click", (e) => {
+    e.preventDefault();
+    const email = form.querySelector('input[type="email"]').value;
+    const password = form.querySelector('input[type="password"]').value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        alert("Sesión iniciada correctamente");
+        window.location.href = "explorar.html";
+      })
+      .catch((error) => {
+        alert("Error al iniciar sesión: " + error.message);
+      });
+  });
+</script>
+
 </body>
 </html>
