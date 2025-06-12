@@ -48,9 +48,10 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js";
   import {
     getAuth,
+    onAuthStateChanged,
+    signOut,
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    onAuthStateChanged
+    signInWithEmailAndPassword
   } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
 
   const firebaseConfig = {
@@ -66,36 +67,57 @@
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
-  const form = document.querySelector("form");
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const email = form.querySelector('input[type="email"]').value;
-    const password = form.querySelector('input[type="password"]').value;
+  const formulario = document.querySelector(".formulario");
+  const content = document.querySelector(".content");
 
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      alert("Cuenta creada correctamente");
-      window.location.href = "explorar.html";
-    } catch (error) {
-      alert("Error: " + error.message);
+  // Mostrar perfil si está logueado
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      formulario.innerHTML = `
+        <h2>Mi perfil</h2>
+        <p><strong>Email:</strong> ${user.email}</p>
+        <button id="cerrarSesion">Cerrar sesión</button>
+      `;
+      document.getElementById("cerrarSesion").addEventListener("click", () => {
+        signOut(auth).then(() => {
+          window.location.reload();
+        });
+      });
+    } else {
+      const form = formulario.querySelector("form");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = form.querySelector('input[type="email"]').value;
+        const password = form.querySelector('input[type="password"]').value;
+
+        try {
+          await createUserWithEmailAndPassword(auth, email, password);
+          alert("Cuenta creada correctamente");
+          window.location.reload();
+        } catch (error) {
+          alert("Error: " + error.message);
+        }
+      });
+
+      const linkLogin = formulario.querySelector("a");
+      linkLogin.addEventListener("click", (e) => {
+        e.preventDefault();
+        const email = formulario.querySelector('input[type="email"]').value;
+        const password = formulario.querySelector('input[type="password"]').value;
+
+        signInWithEmailAndPassword(auth, email, password)
+          .then(() => {
+            alert("Sesión iniciada correctamente");
+            window.location.reload();
+          })
+          .catch((error) => {
+            alert("Error al iniciar sesión: " + error.message);
+          });
+      });
     }
   });
-
-  document.querySelector("a").addEventListener("click", (e) => {
-    e.preventDefault();
-    const email = form.querySelector('input[type="email"]').value;
-    const password = form.querySelector('input[type="password"]').value;
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        alert("Sesión iniciada correctamente");
-        window.location.href = "explorar.html";
-      })
-      .catch((error) => {
-        alert("Error al iniciar sesión: " + error.message);
-      });
-  });
 </script>
+
 
 </body>
 </html>
