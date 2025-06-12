@@ -44,13 +44,13 @@ if (protectedPages.includes(currentPage)) {
       return;
     }
 
-    if (currentPage === "explorar.html") {
-      cargarPartidos();
-    } else if (currentPage === "crear.html") {
+     if (currentPage === "crear.html") {
       const btnCrear = document.getElementById("btnCrear");
       btnCrear?.addEventListener("click", crearPartido);
     } else if (currentPage === "mios.html") {
+      cargarPartidos();
       cargarMisPartidos();
+
     }
   });
 }
