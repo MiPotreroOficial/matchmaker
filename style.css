@@ -18,7 +18,7 @@ body {
 
 /* SIDEBAR */
 .sidebar {
-  background-color: #2c4729;
+  background-color: #2c4729; /* Color de fondo verde oscuro */
   color: #fff;
   width: 220px;
   padding: 2rem 1rem;
@@ -28,125 +28,170 @@ body {
   gap: 2rem;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
 }
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre el icono del logo y el texto */
+  margin-bottom: 1rem;
+}
+
+.logo-icon {
+  font-size: 2.5rem; /* Tamaño del icono del logo */
+  color: #fff;
+}
+
+.sidebar h1 {
+  font-size: 1.8rem; /* Tamaño de fuente del título "MI POTRERO" */
+  line-height: 1.1;
+  font-weight: 700;
+}
+
 .subtitulo {
-  font-size: 14px;
+  font-size: 0.85rem; /* Tamaño del subtítulo "La red social del fútbol" */
   margin-top: -0.5rem;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
+  color: #e0e0e0;
 }
 
-.sidebar h1 {
-  font-size: 1.5rem;
-  line-height: 1.2;
-}
-.sidebar h3{
-  font-size: 0.7em;
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Espacio entre los botones de navegación */
+  width: 100%;
 }
 
 nav button {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 0.75rem 1rem;
+  gap: 12px; /* Espacio entre el icono y el texto del botón */
+  padding: 0.8rem 1rem;
   background-color: transparent;
-  border: 1px solid #fff;
+  border: none; /* Eliminar borde del botón */
   color: #fff;
-  border-radius: 6px;
+  border-radius: 8px; /* Bordes redondeados para los botones */
   cursor: pointer;
   width: 100%;
   text-align: left;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav button .material-symbols-outlined {
+  font-size: 1.5rem; /* Tamaño de los iconos dentro de los botones */
+  color: #fff;
 }
 
 nav button:hover {
-  background-color: #436b3f;
+  background-color: #4CAF50; /* Verde más claro al pasar el ratón */
+  color: #fff;
 }
 
 .imagen-portada {
-  flex: 1;
-  background-color: #2c4729;
+  flex: 1; /* Para que ocupe el espacio restante */
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 1rem;
+  align-items: flex-end; /* Alinea el icono en la parte inferior */
+  padding-bottom: 2rem; /* Espacio desde la parte inferior */
 }
+
+.large-icon {
+  font-size: 6rem; /* Tamaño grande para el icono del potrero */
+  color: rgba(255, 255, 255, 0.3); /* Color blanco semitransparente */
+}
+
 /* MAIN CONTENT */
 main {
   flex: 1;
-  padding: 2rem; /* Ajuste el padding general */
-  background-color: #f8f8f8;
+  padding: 2rem;
+  background-color: #f8f8f8; /* Fondo principal más claro */
   display: flex;
-  flex-direction: column; /* Asegura que el contenido se apile verticalmente */
-  align-items: center; /* Centra el contenido horizontalmente */
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Regla general para todas las secciones de contenido para consistencia de ancho */
 section {
   width: 100%;
-  max-width: 800px; /* Ancho máximo para el contenido principal */
-  margin-bottom: 2rem; /* Espacio entre secciones */
+  max-width: 450px; /* Ancho máximo para el formulario de login/registro (más estrecho) */
+  margin-bottom: 2rem;
   background-color: #fff;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
 .formulario {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center; /* Centra el contenido del formulario */
+  text-align: center;
 }
 
 .formulario h2 {
-  margin-bottom: 1.5rem;
+  font-size: 1.8rem; /* Título del formulario más grande */
+  font-weight: 700;
+  margin-bottom: 2rem;
   color: #333;
 }
 
 .formulario input {
-  width: calc(100% - 20px); /* Ajuste para padding */
-  margin-bottom: 1rem;
-  padding: 0.75rem;
+  width: calc(100% - 20px);
+  margin-bottom: 1.5rem; /* Más espacio entre campos */
+  padding: 0.8rem;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px; /* Bordes más redondeados */
   font-size: 1rem;
+  outline: none; /* Eliminar el contorno al enfocar */
 }
 
-.formulario button {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #436b3f;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.formulario button:hover {
-  background-color: #3a5c37;
+.formulario input:focus {
+  border-color: #4CAF50; /* Borde verde al enfocar */
 }
 
 .formulario p {
   font-size: 0.9rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: #555;
 }
 
 .formulario a {
-  color: #1a5dcc;
+  color: #1a5dcc; /* Color azul para el enlace */
   text-decoration: none;
+  font-weight: 600; /* Negrita para el enlace */
   transition: color 0.3s ease;
 }
 
 .formulario a:hover {
   color: #0d4a99;
+}
+
+.form-icon {
+  font-size: 4rem; /* Tamaño del icono de potrero en el formulario */
+  color: #e0e0e0; /* Color gris claro */
+  margin-bottom: 1.5rem;
+  display: block; /* Para que ocupe su propia línea y se centre */
+  text-align: center;
+  width: 100%; /* Asegura que se centre con text-align */
+}
+
+
+.formulario button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #4CAF50; /* Color verde sólido para el botón */
+  color: #fff;
+  border: none;
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.formulario button:hover {
+  background-color: #45a049; /* Verde un poco más oscuro al pasar el ratón */
 }
 
 /* Estilos para mensajes de la UI */
@@ -176,36 +221,10 @@ section {
   border: 1px solid #bee5eb;
 }
 
-/* Estilos específicos para secciones de contenido */
+/* Estilos específicos para secciones de contenido (no formularios de autenticación) */
 #crear-partido-form, #mis-partidos-section, #explorar-content, #explorar-partidos-mios {
-  padding: 2rem; /* Ajuste el padding para estas secciones */
-  max-width: 600px; /* Ancho máximo para formularios y listas */
-}
-
-#crear-partido-form input,
-#crear-partido-form textarea {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-family: 'Poppins', sans-serif; /* Asegurar la fuente para inputs/textareas */
-}
-
-#crear-partido-form button {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #436b3f;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-#crear-partido-form button:hover {
-  background-color: #3a5c37;
+  max-width: 700px; /* Ancho un poco más grande para el contenido de partidos/explorar */
+  padding: 2.5rem; /* Ajuste el padding para estas secciones */
 }
 
 /* Estilos mejorados para cada tarjeta de partido */
@@ -297,8 +316,12 @@ section {
     gap: 1rem;
   }
 
+  .logo-title {
+    margin-bottom: 0; /* No hay margen inferior en modo fila */
+  }
+
   .sidebar h1 {
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Ajuste de tamaño para móviles */
   }
 
   .sidebar .subtitulo {

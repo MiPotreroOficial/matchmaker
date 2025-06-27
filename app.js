@@ -63,6 +63,7 @@ if (currentPage === "index.html") {
         <input type="email" id="auth-email" placeholder="Email" required>
         <input type="password" id="auth-password" placeholder="Contraseña" required>
         <p>${isLogin ? '¿No tienes una cuenta? <a href="#" id="toggle-register">Registrarse.</a>' : '¿Ya tienes una cuenta? <a href="#" id="toggle-login">Iniciar Sesión.</a>'}</p>
+        <span class="material-symbols-outlined form-icon">stadium</span>
         <button type="submit">${isLogin ? 'Iniciar Sesión' : 'Registrarse'}</button>
       </form>
       <div id="mensaje" class="mensaje"></div>
@@ -124,6 +125,7 @@ if (currentPage === "index.html") {
       <h2>Mi perfil</h2>
       <p><strong>Email:</strong> ${user.email}</p>
       <button id="cerrarSesion">Cerrar sesión</button>
+      <div id="mensaje" class="mensaje"></div>
     `;
     document.getElementById("cerrarSesion").addEventListener("click", () => {
       signOut(auth).then(() => {

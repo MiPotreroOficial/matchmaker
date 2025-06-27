@@ -12,32 +12,34 @@
 </head>
 <body>
   <div class="layout">
-    <!-- Barra lateral -->
     <aside class="sidebar">
-      <h1>MI<br>POTRERO</h1>
+      <div class="logo-title">
+        <span class="material-symbols-outlined logo-icon">stadium</span>
+        <h1>MI<br>POTRERO</h1>
+      </div>
       <p class="subtitulo">La red social del fútbol</p>
 
-      
       <nav>
         <a href="explorar.html"><button><span class="material-symbols-outlined">search</span>Explorar</button></a>
         <a href="crear.html"><button><span class="material-symbols-outlined">add</span>Crear</button></a>
         <a href="mios.html"><button><span class="material-symbols-outlined">sports_soccer</span>Partidos</button></a>
         <a href="index.html"><button><span class="material-symbols-outlined">person</span>Cuenta</button></a>
+        <a href="#"><button><span class="material-symbols-outlined">emoji_events</span>Torneo</button></a>
       </nav>
       <div class="imagen-portada">
-        <img src="https://i.imgur.com/GXf2sfI.jpeg" alt="Mi Potrero" style="max-width:100%; height:auto;">
+        <span class="material-symbols-outlined large-icon">stadium</span>
       </div>
-
     </aside>
 
   <main>
-    <section id="crear">
+    <section id="crear-partido-form">
       <h2>Crear Partido</h2>
       <input type="text" id="lugar" placeholder="Lugar" /><br /><br />
       <input type="datetime-local" id="fecha" /><br /><br />
       <input type="number" id="cupos" placeholder="Cantidad de jugadores" /><br /><br />
       <textarea id="descripcion" placeholder="Descripción"></textarea><br /><br />
       <button id="btnCrear">Crear</button>
+      <div id="mensaje" class="mensaje"></div>
     </section>
   </main>
 
