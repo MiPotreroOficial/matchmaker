@@ -5,19 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Potrero</title>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-  <link rel="stylesheet" href="/matchmaker/style.css">
+  <link rel="stylesheet" href="./style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Strike&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="layout">
-    <!-- Barra lateral -->
     <aside class="sidebar">
       <h1>MI<br>POTRERO</h1>
       <p class="subtitulo">La red social del fútbol</p>
 
-      
       <nav>
         <a href="explorar.html"><button><span class="material-symbols-outlined">search</span>Explorar</button></a>
         <a href="crear.html"><button><span class="material-symbols-outlined">add</span>Crear</button></a>
@@ -27,97 +25,14 @@
       <div class="imagen-portada">
         <img src="https://i.imgur.com/GXf2sfI.jpeg" alt="Mi Potrero" style="max-width:100%; height:auto;">
       </div>
-
     </aside>
 
-    <!-- Sección principal -->
     <main class="content">
-      <section class="formulario">
-        <h2>Registrarse</h2>
-        <form>
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Contraseña" required>
-          <p>¿Ya tienes una cuenta? <a href="#">Iniciar Sesión.</a></p>
-          <button type="submit">Registrarse</button>
-        </form>
-      </section>
+      <section class="formulario" id="auth-section">
+        </section>
     </main>
-    
+
   </div>
-  <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js";
-  import {
-    getAuth,
-    onAuthStateChanged,
-    signOut,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
-  } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-auth.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBRo2ZoKk-XbgPkNl1BOtRcGhSB4JEuocM",
-    authDomain: "mi-potrero-partidos.firebaseapp.com",
-    projectId: "mi-potrero-partidos",
-    storageBucket: "mi-potrero-partidos.firebasestorage.app",
-    messagingSenderId: "555922222113",
-    appId: "1:555922222113:web:dd2f79d5e20f0d96cac760",
-    measurementId: "G-7LBJ29RXKM"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  const formulario = document.querySelector(".formulario");
-  const content = document.querySelector(".content");
-
-  // Mostrar perfil si está logueado
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      formulario.innerHTML = `
-        <h2>Mi perfil</h2>
-        <p><strong>Email:</strong> ${user.email}</p>
-        <button id="cerrarSesion">Cerrar sesión</button>
-      `;
-      document.getElementById("cerrarSesion").addEventListener("click", () => {
-        signOut(auth).then(() => {
-          window.location.reload();
-        });
-      });
-    } else {
-      const form = formulario.querySelector("form");
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const email = form.querySelector('input[type="email"]').value;
-        const password = form.querySelector('input[type="password"]').value;
-
-        try {
-          await createUserWithEmailAndPassword(auth, email, password);
-          alert("Cuenta creada correctamente");
-          window.location.reload();
-        } catch (error) {
-          alert("Error: " + error.message);
-        }
-      });
-
-      const linkLogin = formulario.querySelector("a");
-      linkLogin.addEventListener("click", (e) => {
-        e.preventDefault();
-        const email = formulario.querySelector('input[type="email"]').value;
-        const password = formulario.querySelector('input[type="password"]').value;
-
-        signInWithEmailAndPassword(auth, email, password)
-          .then(() => {
-            alert("Sesión iniciada correctamente");
-            window.location.reload();
-          })
-          .catch((error) => {
-            alert("Error al iniciar sesión: " + error.message);
-          });
-      });
-    }
-  });
-</script>
-
-
+  <script type="module" src="app.js"></script>
 </body>
 </html>
