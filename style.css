@@ -177,7 +177,7 @@ section {
 }
 
 /* Estilos específicos para secciones de contenido */
-#crear-partido-form, #mis-partidos-section, #explorar-content {
+#crear-partido-form, #mis-partidos-section, #explorar-content, #explorar-partidos-mios {
   padding: 2rem; /* Ajuste el padding para estas secciones */
   max-width: 600px; /* Ancho máximo para formularios y listas */
 }
@@ -208,17 +208,63 @@ section {
   background-color: #3a5c37;
 }
 
+/* Estilos mejorados para cada tarjeta de partido */
 .partido {
-  background-color: #e9ecef; /* Un color de fondo para cada partido */
+  background-color: #e9ecef;
   border: 1px solid #dee2e6;
   border-radius: 8px;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem; /* Más espacio entre partidos */
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  line-height: 1.6; /* Mejor espaciado entre líneas */
+}
+
+.partido h3 {
+  font-size: 1.2rem;
+  color: #2c4729; /* Color más oscuro para el título */
+  margin-bottom: 0.5rem;
+}
+
+.partido p {
+  margin-bottom: 0.3rem; /* Espacio entre párrafos */
+  font-size: 0.95rem;
+  color: #555;
 }
 
 .partido strong {
-  color: #2c4729;
+  color: #2c4729; /* Asegura el color para el texto en negrita */
+}
+
+.partido .jugadores-list {
+  margin-top: 1rem;
+  border-top: 1px solid #dee2e6; /* Línea separadora */
+  padding-top: 0.8rem;
+}
+
+.partido .jugadores-list strong {
+  display: block; /* Para que "Inscritos:" esté en su propia línea */
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.partido .jugadores-list ul {
+  list-style: none; /* Quitar viñetas por defecto */
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap; /* Permite que los jugadores se envuelvan */
+  gap: 0.5rem; /* Espacio entre cada jugador */
+}
+
+.partido .jugadores-list li {
+  background-color: #f0f0f0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #555;
+  white-space: nowrap; /* Evita que los emails largos se rompan en varias líneas dentro del li */
+  overflow: hidden; /* Oculta el texto que desborda */
+  text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es muy largo */
+  max-width: 150px; /* Limita el ancho de cada email */
 }
 
 .partido button {
@@ -228,7 +274,7 @@ section {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 0.5rem;
+  margin-top: 0.8rem; /* Más espacio entre la lista y el botón */
   transition: background-color 0.3s ease;
 }
 
@@ -284,7 +330,7 @@ section {
     padding: 1.5rem; /* Ajuste el padding de las secciones */
   }
 
-  .formulario, #crear-partido-form, #mis-partidos-section, #explorar-content {
+  .formulario, #crear-partido-form, #mis-partidos-section, #explorar-content, #explorar-partidos-mios {
     max-width: 100%; /* Ocupa todo el ancho disponible */
   }
 }
@@ -307,6 +353,8 @@ section {
   .formulario button {
     font-size: 0.9rem;
   }
+
+  .partido .jugadores-list li {
+    max-width: 100%; /* Permite que los emails largos ocupen todo el ancho si es necesario */
+  }
 }
-
-

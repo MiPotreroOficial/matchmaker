@@ -194,16 +194,22 @@ function cargarPartidos() {
       const fechaFormateada = fechaPartido.toLocaleString();
       let jugadoresActuales = p.jugadores ? p.jugadores.length : 0;
       
-      // Mostrar la lista de jugadores
-      const jugadoresList = p.jugadores && p.jugadores.length > 0
-        ? `<p><strong>Jugadores:</strong> ${p.jugadores.join(', ')}</p>`
-        : `<p><strong>Jugadores:</strong> Ninguno aún</p>`;
+      // Mostrar la lista de jugadores de forma mejorada
+      const jugadoresListItems = p.jugadores && p.jugadores.length > 0
+        ? p.jugadores.map(jugador => `<li>${jugador}</li>`).join('')
+        : '<li>Nadie se ha unido aún.</li>';
 
       div.innerHTML = `
-        <strong>${fechaFormateada}</strong> - ${p.lugar}<br>
-        ${p.descripcion}<br>
-        ${jugadoresActuales} / ${p.cupos} jugadores<br>
-        ${jugadoresList}
+        <h3>${p.lugar}</h3>
+        <p class="fecha-partido"><strong>Fecha:</strong> ${fechaFormateada}</p>
+        <p class="descripcion-partido">${p.descripcion}</p>
+        <p class="cupos-partido"><strong>Jugadores:</strong> ${jugadoresActuales} / ${p.cupos}</p>
+        <div class="jugadores-list">
+          <strong>Inscritos:</strong>
+          <ul>
+            ${jugadoresListItems}
+          </ul>
+        </div>
       `;
 
       if (auth.currentUser && !p.jugadores.includes(auth.currentUser.email)) {
@@ -282,17 +288,23 @@ function cargarMisPartidos() {
       const div = document.createElement("div");
       const fechaFormateada = new Date(p.fecha).toLocaleString();
       
-      // Mostrar la lista de jugadores
-      const jugadoresList = p.jugadores && p.jugadores.length > 0
-        ? `<p><strong>Jugadores:</strong> ${p.jugadores.join(', ')}</p>`
-        : `<p><strong>Jugadores:</strong> Ninguno aún</p>`;
+      // Mostrar la lista de jugadores de forma mejorada
+      const jugadoresListItems = p.jugadores && p.jugadores.length > 0
+        ? p.jugadores.map(jugador => `<li>${jugador}</li>`).join('')
+        : '<li>Nadie se ha unido aún.</li>';
 
       div.className = "partido";
       div.innerHTML = `
-        <strong>${fechaFormateada}</strong> - ${p.lugar}<br>
-        ${p.descripcion}<br>
-        ${p.jugadores.length} / ${p.cupos} jugadores
-        ${jugadoresList}
+        <h3>${p.lugar}</h3>
+        <p class="fecha-partido"><strong>Fecha:</strong> ${fechaFormateada}</p>
+        <p class="descripcion-partido">${p.descripcion}</p>
+        <p class="cupos-partido"><strong>Jugadores:</strong> ${p.jugadores.length} / ${p.cupos}</p>
+        <div class="jugadores-list">
+          <strong>Inscritos:</strong>
+          <ul>
+            ${jugadoresListItems}
+          </ul>
+        </div>
       `;
       cont.appendChild(div);
     });
