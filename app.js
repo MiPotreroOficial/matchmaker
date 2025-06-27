@@ -144,7 +144,8 @@ if (currentPage === "index.html") {
 } else if (protectedPages.includes(currentPage)) {
   onAuthStateChanged(auth, user => {
     if (!user) {
-      mostrarMensaje("Inicia sesión primero", "error");
+      // Si no hay usuario autenticado, redirige a index.html y muestra un mensaje
+      mostrarMensaje("Inicia sesión primero para acceder a esta página.", "error");
       window.location.href = "index.html";
       return;
     }
